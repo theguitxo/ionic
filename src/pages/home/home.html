@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-center>
+      SKU List
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-list *ngIf="showSkuList()">
+
+      <button
+        (click)="goToDetail(item)"
+        ion-item *ngFor="let item of getTransactionsList()">
+
+        SKU-{{ item }}
+
+      </button>
+
+    </ion-list>
+
+</ion-content>

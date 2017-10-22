@@ -1,0 +1,53 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>GNB - SKU Detail</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6 text-left>
+            <strong>SKU</strong>
+          </ion-col>
+          <ion-col col-6 text-right>
+            <strong>Total amount</strong>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-6 text-left>
+            {{ skuSelected }}
+          </ion-col>
+          <ion-col col-6 text-right>
+            {{ (totalEur / 100) | number:'1.2-2' }}
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4 text-center>
+        <strong>Currency</strong>
+      </ion-col>
+      <ion-col col-4 text-center>
+        <strong>Amount/CUR</strong>
+      </ion-col>
+      <ion-col col-4 text-center>
+        <strong>Amount/EUR</strong>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngFor="let item of getDataSkuSelected(); let i = index">
+      <ion-col col-4 text-left>{{ item.currency }}</ion-col>
+      <ion-col col-4 text-right>{{ (item.amount ) | number:'1.2-2' }}</ion-col>
+      <ion-col col-4 text-right>{{ (item.amountEur / 100) | number:'1.2-2' }}</ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
